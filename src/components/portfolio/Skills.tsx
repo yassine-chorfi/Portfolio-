@@ -11,7 +11,6 @@ import {
   MessageSquare,
   Smartphone,
   Terminal,
-  Wordpress,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
