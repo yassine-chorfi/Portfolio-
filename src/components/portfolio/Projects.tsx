@@ -1,4 +1,5 @@
 import { ExternalLink, Github, Lock } from "lucide-react";
+import { Reveal } from "./Reveal";
 
 type Project = {
   title: string;
@@ -44,7 +45,7 @@ export const Projects = () => {
   return (
     <section id="projects" className="py-24 relative">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
+        <Reveal direction="up" className="text-center mb-16">
           <span className="text-sm uppercase tracking-widest text-primary font-medium">Projects</span>
           <h2 className="text-4xl md:text-5xl font-bold mt-3">
             Selected <span className="gradient-text">work</span>
@@ -52,14 +53,12 @@ export const Projects = () => {
           <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
             A few projects I've recently delivered for clients and teams.
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((p) => (
-            <article
-              key={p.title}
-              className="group card-gradient border border-border rounded-2xl p-7 flex flex-col hover:border-primary/60 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden"
-            >
+          {projects.map((p, i) => (
+            <Reveal key={p.title} direction="up" delay={i * 120} duration={700}>
+              <article className="group card-gradient border border-border rounded-2xl p-7 flex flex-col hover:border-primary/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_hsl(var(--primary)/0.3)] relative overflow-hidden h-full">
               <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
               <span className="text-xs uppercase tracking-wider text-primary font-medium mb-3 relative">
@@ -97,7 +96,8 @@ export const Projects = () => {
                   Link coming soon
                 </span>
               )}
-            </article>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>

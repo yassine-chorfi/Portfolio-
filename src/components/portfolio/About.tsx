@@ -1,4 +1,5 @@
 import { CheckCircle2 } from "lucide-react";
+import { Reveal } from "./Reveal";
 
 const highlights = [
   "Clean, modern design with smooth functionality",
@@ -12,7 +13,7 @@ export const About = () => {
     <section id="about" className="py-24 relative">
       <div className="container mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div>
+          <Reveal direction="right">
             <span className="text-sm uppercase tracking-widest text-primary font-medium">About Me</span>
             <h2 className="text-4xl md:text-5xl font-bold mt-3 mb-6">
               Crafting websites that <span className="gradient-text">help businesses grow</span>
@@ -33,16 +34,18 @@ export const About = () => {
             </p>
 
             <ul className="space-y-3">
-              {highlights.map((h) => (
-                <li key={h} className="flex items-start gap-3">
-                  <CheckCircle2 className="text-primary mt-0.5 shrink-0" size={20} />
-                  <span className="text-foreground/90">{h}</span>
-                </li>
+              {highlights.map((h, i) => (
+                <Reveal key={h} direction="up" delay={150 + i * 80}>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="text-primary mt-0.5 shrink-0" size={20} />
+                    <span className="text-foreground/90">{h}</span>
+                  </li>
+                </Reveal>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
-          <div className="relative">
+          <Reveal direction="left" delay={150} className="relative">
             <div className="absolute inset-0 bg-primary/10 blur-3xl rounded-full" />
             <div className="relative grid grid-cols-2 gap-4">
               {[
@@ -51,19 +54,17 @@ export const About = () => {
                 { title: "Backend", val: "PHP / MySQL" },
                 { title: "Design", val: "UI/UX & Logo" },
               ].map((c, i) => (
-                <div
-                  key={c.title}
-                  className="card-gradient border border-border rounded-2xl p-6 hover:border-primary/50 transition-all hover:-translate-y-1"
-                  style={{ animationDelay: `${i * 0.1}s` }}
-                >
-                  <div className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
-                    {c.title}
+                <Reveal key={c.title} direction="scale" delay={200 + i * 100}>
+                  <div className="card-gradient border border-border rounded-2xl p-6 hover:border-primary/50 transition-all hover:-translate-y-1">
+                    <div className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
+                      {c.title}
+                    </div>
+                    <div className="text-lg font-semibold text-foreground">{c.val}</div>
                   </div>
-                  <div className="text-lg font-semibold text-foreground">{c.val}</div>
-                </div>
+                </Reveal>
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>
