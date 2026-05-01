@@ -124,6 +124,14 @@ All colors MUST be HSL.
   }
 }
 
+/* Custom cursor: hide native cursor when active (desktop only) */
+@media (pointer: fine) {
+  html.custom-cursor-active,
+  html.custom-cursor-active * {
+    cursor: none !important;
+  }
+}
+
 @layer utilities {
   .gradient-text {
     background: var(--gradient-primary);
