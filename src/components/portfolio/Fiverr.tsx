@@ -1,15 +1,17 @@
 import { ArrowUpRight, Star } from "lucide-react";
+import { Reveal } from "./Reveal";
 
 export const Fiverr = () => {
   return (
     <section className="py-24 relative">
       <div className="container mx-auto">
-        <div className="relative card-gradient border border-border rounded-3xl p-10 md:p-16 overflow-hidden">
+        <Reveal direction="scale" duration={800}>
+          <div className="relative card-gradient border border-border rounded-3xl p-10 md:p-16 overflow-hidden">
           <div className="absolute -top-32 -right-32 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
           <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-primary-glow/10 rounded-full blur-3xl" />
 
           <div className="relative grid md:grid-cols-2 gap-10 items-center">
-            <div>
+            <Reveal direction="right" delay={200}>
               <div className="inline-flex items-center gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} size={16} className="fill-primary text-primary" />
@@ -23,9 +25,9 @@ export const Fiverr = () => {
                 I'm available on Fiverr to bring your website idea to life — fast turnaround,
                 professional quality, and 100% client satisfaction.
               </p>
-            </div>
+            </Reveal>
 
-            <div className="flex md:justify-end">
+            <Reveal direction="left" delay={350} className="flex md:justify-end">
               <a
                 href="https://www.fiverr.com/s/dD4E7q8"
                 target="_blank"
@@ -38,9 +40,10 @@ export const Fiverr = () => {
                   className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
                 />
               </a>
-            </div>
+            </Reveal>
           </div>
-        </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

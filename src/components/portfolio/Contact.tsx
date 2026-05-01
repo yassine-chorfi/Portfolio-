@@ -2,6 +2,7 @@ import { useState } from "react";
 import { z } from "zod";
 import { Mail, MapPin, Send, Github, Linkedin, Twitter, Instagram } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import { Reveal } from "./Reveal";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(80, "Name too long"),
@@ -38,7 +39,7 @@ export const Contact = () => {
   return (
     <section id="contact" className="py-24 relative">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
+        <Reveal direction="up" className="text-center mb-16">
           <span className="text-sm uppercase tracking-widest text-primary font-medium">Contact</span>
           <h2 className="text-4xl md:text-5xl font-bold mt-3">
             Let's <span className="gradient-text">work together</span>
@@ -46,10 +47,10 @@ export const Contact = () => {
           <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
             Have a project in mind? Send me a message and I'll get back to you within 24 hours.
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid md:grid-cols-5 gap-8 max-w-5xl mx-auto">
-          <div className="md:col-span-2 space-y-6">
+          <Reveal direction="right" delay={100} className="md:col-span-2 space-y-6">
             <div className="card-gradient border border-border rounded-2xl p-6">
               <Mail className="text-primary mb-3" />
               <div className="text-sm text-muted-foreground">Email</div>
@@ -86,9 +87,10 @@ export const Contact = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </Reveal>
 
-          <form onSubmit={onSubmit} className="md:col-span-3 card-gradient border border-border rounded-2xl p-8 space-y-5">
+          <Reveal direction="left" delay={200} className="md:col-span-3">
+          <form onSubmit={onSubmit} className="card-gradient border border-border rounded-2xl p-8 space-y-5">
             <div>
               <label className="text-sm text-muted-foreground mb-2 block">Name</label>
               <input
@@ -131,6 +133,7 @@ export const Contact = () => {
               <Send size={16} />
             </button>
           </form>
+          </Reveal>
         </div>
       </div>
     </section>
