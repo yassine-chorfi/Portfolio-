@@ -21,11 +21,15 @@ export const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/80 backdrop-blur-lg border-b border-border" : "bg-transparent"
-      }`}
+      className="fixed top-4 left-0 right-0 z-50 px-4"
     >
-      <nav className="container mx-auto flex items-center justify-between py-4">
+      <nav
+        className={`max-w-6xl mx-auto flex items-center justify-between py-3 px-5 rounded-2xl border border-border/60 transition-all duration-300 ${
+          scrolled
+            ? "bg-background/80 backdrop-blur-xl shadow-[0_8px_32px_-8px_hsl(160_30%_2%/0.6)]"
+            : "bg-background/50 backdrop-blur-md shadow-[0_4px_24px_-12px_hsl(160_30%_2%/0.5)]"
+        }`}
+      >
         <a href="#home" className="font-[Space_Grotesk] text-xl font-bold">
           <span className="gradient-text">Yassine</span>
           <span className="text-foreground">.dev</span>
@@ -63,8 +67,8 @@ export const Navbar = () => {
       </nav>
 
       {open && (
-        <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-lg animate-fade-in">
-          <ul className="container mx-auto flex flex-col py-4 gap-4">
+        <div className="md:hidden mt-2 max-w-6xl mx-auto rounded-2xl border border-border/60 bg-background/95 backdrop-blur-lg animate-fade-in shadow-lg">
+          <ul className="flex flex-col py-4 px-5 gap-4">
             {links.map((l) => (
               <li key={l.href}>
                 <a
