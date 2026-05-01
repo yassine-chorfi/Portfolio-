@@ -31,6 +31,13 @@ const projects: Project[] = [
       "A high-end brand website with custom UI, smooth interactions and premium visual identity. Live link coming soon.",
     tech: ["WordPress", "UI/UX", "Photoshop"],
   },
+  {
+    title: "Syllabus Coworking Space",
+    category: "Business Website",
+    description:
+      "A modern, conversion-focused website for Syllabus coworking space — featuring a clean booking flow, polished UI and full responsiveness.",
+    tech: ["WordPress", "Elementor", "UI/UX", "CSS"],
+  },
 ];
 
 export const Projects = () => {

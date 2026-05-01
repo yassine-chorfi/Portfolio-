@@ -53,7 +53,12 @@ export const Contact = () => {
             <div className="card-gradient border border-border rounded-2xl p-6">
               <Mail className="text-primary mb-3" />
               <div className="text-sm text-muted-foreground">Email</div>
-              <div className="font-medium">hello@yassinechorfi.dev</div>
+              <a
+                href="mailto:yassinechorfi977@gmail.com"
+                className="font-medium hover:text-primary transition-colors break-all"
+              >
+                yassinechorfi977@gmail.com
+              </a>
             </div>
             <div className="card-gradient border border-border rounded-2xl p-6">
               <MapPin className="text-primary mb-3" />
