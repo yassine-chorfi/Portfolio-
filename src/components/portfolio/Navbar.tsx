@@ -56,7 +56,7 @@ export const Navbar = () => {
           <span className="text-foreground">.dev</span>
         </a>
 
-        <ul className="hidden md:flex items-center gap-2 relative">
+        <ul className="hidden md:flex items-center gap-8 relative">
           {links.map((l) => {
             const id = l.href.slice(1);
             const isActive = active === id;
@@ -64,19 +64,17 @@ export const Navbar = () => {
               <li key={l.href} className="relative">
                 <a
                   href={l.href}
-                  className={`relative z-10 text-sm px-4 py-2 rounded-full transition-colors duration-300 ${
-                    isActive
-                      ? "text-primary-foreground"
-                      : "text-muted-foreground hover:text-primary"
+                  className={`relative text-sm transition-colors duration-300 ${
+                    isActive ? "text-primary" : "text-muted-foreground hover:text-primary"
                   }`}
                 >
-                  {isActive && (
-                    <span
-                      aria-hidden
-                      className="absolute inset-0 -z-10 rounded-full bg-primary shadow-[0_0_20px_-2px_hsl(var(--primary)/0.6)] animate-scale-in"
-                    />
-                  )}
                   {l.label}
+                  <span
+                    aria-hidden
+                    className={`absolute left-1/2 -bottom-2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_10px_hsl(var(--primary)/0.8)] transition-all duration-300 ${
+                      isActive ? "opacity-100 scale-100" : "opacity-0 scale-0"
+                    }`}
+                  />
                 </a>
               </li>
             );
