@@ -36,17 +36,45 @@
 }
 
 .site-header {
-  position: absolute;
+  position: fixed;
   z-index: 20;
-  inset: 0 0 auto;
-  padding-top: 21px;
+  inset: 20px 20px auto;
 }
 
 .site-nav {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 53px;
+  width: 100%;
+  min-height: 64px;
+  padding-inline: 23px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.17);
+  border-radius: 999px;
+  background:
+    linear-gradient(115deg, rgba(255,255,255,.11), rgba(255,255,255,.025) 38%, rgba(255,255,255,.065)),
+    rgba(24,26,22,.58);
+  box-shadow:
+    0 12px 40px rgba(0,0,0,.22),
+    inset 0 1px 0 rgba(255,255,255,.2),
+    inset 0 -1px 0 rgba(255,255,255,.035);
+  -webkit-backdrop-filter: blur(24px) saturate(175%);
+  backdrop-filter: blur(24px) saturate(175%);
+}
+
+.site-nav > * {
+  position: relative;
+  z-index: 1;
+}
+
+.site-nav::after {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,.1), transparent 42%);
+  content: "";
+  pointer-events: none;
 }
 
 .brand {
@@ -1062,11 +1090,17 @@
   }
 
   .site-header {
-    padding-top: 12px;
+    inset: 20px 20px auto;
   }
 
-  .site-nav {
-    min-height: 46px;
+  .site-nav.page-width {
+    width: 100%;
+    min-height: 56px;
+    padding-inline: 12px;
+  }
+
+  .mobile-nav.page-width {
+    width: 100%;
   }
 
   .brand-mark {
