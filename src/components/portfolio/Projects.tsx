@@ -1,106 +1,142 @@
-import { ExternalLink, Github, Lock } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { Reveal } from "./Reveal";
 
 type Project = {
+  number: string;
   title: string;
-  description: string;
-  tech: string[];
-  link?: string;
   category: string;
+  description: string;
+  objective: string;
+  url: string;
+  image: string;
+  imageMode?: "desktop" | "mobile";
+  alt: string;
+  theme: string;
+  visualLabel: string;
+  visualTitle: string;
 };
 
 const projects: Project[] = [
   {
-    title: "Stock Management System",
-    category: "Web App",
+    number: "01",
+    title: "Yaniss Print",
+    category: "Business website · Printing services",
     description:
-      "A complete inventory & stock management dashboard built for Kounouz Edition to track products, orders, and reporting in real time.",
-    tech: ["PHP", "MySQL", "JavaScript", "Bootstrap"],
+      "A clear, considered home for a print studio — bringing flyers, business cards, brochures and banners into focus.",
+    objective:
+      "Purpose · Present the company’s services and help clients discover its printing solutions.",
+    url: "https://yaniss-print.vercel.app/",
+    image: "/project-previews/yaniss-print.png",
+    imageMode: "desktop",
+    alt: "Screenshot of the Yaniss Print website and printing catalog",
+    theme: "project-art-print",
+    visualLabel: "PRINT / MAKE IT REAL",
+    visualTitle: "Ideas you can\nhold in your hands.",
   },
   {
-    title: "AB — Anass Benlechgar",
-    category: "Freelance Website",
+    number: "02",
+    title: "Aegilabs",
+    category: "AI · Creative technology · Team project",
     description:
-      "A modern, fast, conversion-focused freelance website with custom WordPress theme, smooth animations and full responsiveness.",
-    tech: ["WordPress", "Elementor", "PHP", "CSS"],
-    link: "https://www.ab-anassbenlechgar.com/",
+      "A team-built exploration of free, AI-powered intelligent agents and the new digital possibilities they open up.",
+    objective:
+      "Purpose · Share the team’s vision for accessible AI and intelligent digital solutions.",
+    url: "https://aegilabs-website.vercel.app/",
+    image: "/project-previews/aegilabs.png",
+    imageMode: "desktop",
+    alt: "Screenshot of the Aegilabs AI agents website",
+    theme: "project-art-ai",
+    visualLabel: "AEGI / INTELLIGENCE, OPEN",
+    visualTitle: "Ideas that\nthink forward.",
   },
   {
-    title: "Brand Website Project",
-    category: "Brand / E-commerce",
+    number: "03",
+    title: "Aero Step",
+    category: "E-commerce · Frontend development",
     description:
-      "A high-end brand website with custom UI, smooth interactions and premium visual identity. Live link coming soon.",
-    tech: ["WordPress", "UI/UX", "Photoshop"],
+      "A fictional sneaker label and digital storefront, created to experiment with modern frontend and cloud technologies.",
+    objective:
+      "Purpose · Explore the craft of building an engaging online shopping experience.",
+    url: "https://aero-step-sneakers.vercel.app/",
+    image:
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=85",
+    alt: "Statement red sneaker representing the Aero Step store",
+    theme: "project-art-aero",
+    visualLabel: "AERO STEP / 001",
+    visualTitle: "Move\nwith intent.",
   },
   {
-    title: "Syllabus Coworking Space",
-    category: "Business Website",
+    number: "04",
+    title: "Mobile e-commerce",
+    category: "E-commerce · Responsive design",
     description:
-      "A modern, conversion-focused website for Syllabus coworking space — featuring a clean booking flow, polished UI and full responsiveness.",
-    tech: ["WordPress", "Elementor", "UI/UX", "CSS"],
+      "A shopping experience designed around the small screen, with a responsive interface made for mobile-first browsing.",
+    objective:
+      "Purpose · Make online shopping feel natural and considered on smartphones.",
+    url: "https://mediumblue-ape-656449.hostingersite.com/",
+    image: "/project-previews/mobile-ecommerce.png",
+    imageMode: "mobile",
+    alt: "Mobile screenshot of the Nuit Rosé e-commerce storefront",
+    theme: "project-art-mobile",
+    visualLabel: "MOBILE / MADE TO MOVE",
+    visualTitle: "A better fit\nfor your pocket.",
   },
 ];
 
-export const Projects = () => {
-  return (
-    <section id="projects" className="py-24 relative">
-      <div className="container mx-auto">
-        <Reveal direction="up" className="text-center mb-16">
-          <span className="text-sm uppercase tracking-widest text-primary font-medium">Projects</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-3">
-            Selected <span className="gradient-text">work</span>
-          </h2>
-          <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
-            A few projects I've recently delivered for clients and teams.
-          </p>
-        </Reveal>
+export const Projects = () => (
+  <section id="projects" className="section projects-section">
+    <div className="page-width">
+      <Reveal className="section-heading projects-heading">
+        <div>
+          <span className="eyebrow"><span className="eyebrow-line" /> A few things I’ve made</span>
+          <h2>Selected <span className="text-accent">work.</span></h2>
+        </div>
+        <p>Four different ideas. One shared focus: making the web feel a little more human.</p>
+      </Reveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((p, i) => (
-            <Reveal key={p.title} direction="up" delay={i * 120} duration={700}>
-              <article className="group card-gradient border border-border rounded-2xl p-7 flex flex-col hover:border-primary/60 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_hsl(var(--primary)/0.3)] relative overflow-hidden h-full">
-              <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
-
-              <span className="text-xs uppercase tracking-wider text-primary font-medium mb-3 relative">
-                {p.category}
-              </span>
-              <h3 className="text-xl font-bold mb-3 relative">{p.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-grow relative">
-                {p.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2 mb-6 relative">
-                {p.tech.map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs px-2.5 py-1 rounded-full bg-secondary border border-border text-muted-foreground"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-
-              {p.link ? (
+      <div className="projects-grid">
+        {projects.map((project, index) => (
+          <Reveal key={project.number} delay={index * 80} duration={650}>
+            <article className="project-card">
+              <a
+                className={`project-art ${project.theme} ${project.imageMode ? `project-art-${project.imageMode}` : ""}`}
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Visit ${project.title} live website`}
+              >
+                <img src={project.image} alt={project.alt} loading="lazy" />
+                <span className="project-art-wash" />
+                <span className="project-art-copy">
+                  <span>{project.visualLabel}</span>
+                  <strong>{project.visualTitle}</strong>
+                </span>
+                <span className="project-art-link"><ArrowUpRight size={19} /></span>
+                <span className="project-art-count">{project.number} / 04</span>
+              </a>
+              <div className="project-details">
+                <div className="project-title-row">
+                  <div>
+                    <span className="project-category">{project.category}</span>
+                    <h3>{project.title}</h3>
+                  </div>
+                  <span className="project-number">{project.number}</span>
+                </div>
+                <p className="project-description">{project.description}</p>
+                <p className="project-objective">{project.objective}</p>
                 <a
-                  href={p.link}
+                  className="project-visit"
+                  href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all relative"
                 >
-                  View Live
-                  <ExternalLink size={16} />
+                  View live project <ExternalLink size={14} />
                 </a>
-              ) : (
-                <span className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground relative">
-                  <Lock size={14} />
-                  Link coming soon
-                </span>
-              )}
-              </article>
-            </Reveal>
-          ))}
-        </div>
+              </div>
+            </article>
+          </Reveal>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);

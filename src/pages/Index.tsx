@@ -1,12 +1,12 @@
 import { Navbar } from "@/components/portfolio/Navbar";
 import { CustomCursor } from "@/components/portfolio/CustomCursor";
 import { Hero } from "@/components/portfolio/Hero";
+import { Projects } from "@/components/portfolio/Projects";
 import { About } from "@/components/portfolio/About";
 import { Skills } from "@/components/portfolio/Skills";
-import { Projects } from "@/components/portfolio/Projects";
-import { Fiverr } from "@/components/portfolio/Fiverr";
 import { Contact } from "@/components/portfolio/Contact";
 import { Footer } from "@/components/portfolio/Footer";
+import "../App.css";
 
 const Index = () => {
   return (
@@ -14,10 +14,9 @@ const Index = () => {
       <CustomCursor />
       <Navbar />
       <Hero />
+      <Projects />
       <About />
       <Skills />
-      <Projects />
-      <Fiverr />
       <Contact />
       <Footer />
     </main>
