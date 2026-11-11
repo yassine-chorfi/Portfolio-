@@ -9,7 +9,12 @@ export const Contact = () => (
         <span className="eyebrow"><span className="eyebrow-line" /> Have something in mind?</span>
         <h2>Good things start<br />with a <span className="text-accent">hello.</span></h2>
         <p>I’m always happy to hear about a thoughtful idea, a new collaboration, or just to connect.</p>
-        <a className="button button-primary contact-button" href="mailto:yassinechorfi35@gmail.com">
+        <a
+          className="button button-primary contact-button"
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=yassinechorfi35%40gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Mail size={17} /> Say hello <ArrowUpRight size={17} />
         </a>
         <div className="contact-socials" aria-label="Social profiles">
